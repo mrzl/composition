@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 14)
 
 include_directories(../src)
 
-add_library(path ../src/path.cpp)
+add_library(path ../src/modules/path/path.cpp)
 
 ADD_SUBDIRECTORY(lib/googletest-release-1.8.0/googletest build)
 enable_testing()
