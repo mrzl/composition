@@ -2,9 +2,7 @@
 // Created by mar on 29.06.17.
 //
 
-#ifndef COMPOSITION_PATH_H
-#define COMPOSITION_PATH_H
-
+#pragma once
 
 class path {
 public:
@@ -14,6 +12,3 @@ public:
 private:
 
 };
-
-
-#endif //COMPOSITION_PATH_H
