@@ -46,7 +46,6 @@ import sys
 
 import gmock_test_utils
 
-
 # The flag for generating the golden file
 GENGOLDEN_FLAG = '--gengolden'
 
