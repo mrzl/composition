@@ -1,3 +1,6 @@
 [submodule "dependencies/fast-cpp-csv-parser"]
 	path = dependencies/fast-cpp-csv-parser
 	url = https://github.com/mrzl/fast-cpp-csv-parser
+[submodule "dependencies/of"]
+	path = dependencies/of
+	url = https://github.com/ofnode/of
