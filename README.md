@@ -1,0 +1,1 @@
+    cmake .. && make -j7 && make run_test1
