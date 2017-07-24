@@ -5,7 +5,7 @@
 #include <iostream>
 
 #include "ofMain.h"
-#include "../../modules/path/pathmanager.h"
+#include "path/pathmanager.h"
 
 class ofApp : public ofBaseApp {
 public:
