@@ -12,5 +12,9 @@ project(path)
 
 add_subdirectory(src)
 
+add_custom_target(run_test1
+        COMMAND ${CMAKE_SOURCE_DIR}/src/applications/bin/test1
+        WORKING_DIRECTORY ${CMAKE_PROJECT_DIR})
+
 # This must always be last!
 include(CPack)
