@@ -2,26 +2,23 @@
 
 #include "path.h"
 #include "rect.h"
+#include "filter.h"
 
 #include <vector>
 #include <string>
 #include <iostream>
+#include <memory>
 
-class pathmanager {
+class path_manager {
 public:
-	pathmanager();
-
-	~pathmanager();
-
 	std::vector<path>& paths();
 	int load( std::string directory, unsigned int max = 0 );
 	int size();
 	path& at(unsigned int index);
 	void clear();
 	int remove_double_clicks();
-	int filter_self_amount_of_points( int number_of_points );
-	int filter_self_bounding_box( rect bounding_box );
-	std::vector<path> filter_bounding_box(rect bounding_box);
+	int filter_self(std::shared_ptr<filter> f);
+	std::vector<path> filter_new(std::shared_ptr<filter> f);
 
 private:
 	std::vector<path> m_paths;

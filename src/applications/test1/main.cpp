@@ -1,14 +1,14 @@
 #include <iostream>
 
 #include "ofMain.h"
-#include "path/pathmanager.h"
+#include "path/path_manager.h"
 #include "path_renderer.h"
 
 class ofApp : public ofBaseApp {
 public:
 
 	int paths_loaded;
-	pathmanager m;
+	path_manager m;
 
 	void setup() {
 		paths_loaded = m.load( "/home/mar/code/composition/data/june_2015/" );
@@ -22,8 +22,8 @@ public:
 		ofBackground( 0 );
 		ofSetColor( 255 );
 		ofSetWindowTitle( ofToString( ofGetFrameRate()));
-
-		auto paths = m.filter_bounding_box( rect( ofGetMouseX(), ofGetMouseY(), 200, 200 ));
+		auto bb_filter = std::make_shared<bounding_box_filter>( rect( ofGetMouseX(), ofGetMouseY(), 200, 200 ));
+		auto paths = m.filter_new( bb_filter );
 		for ( auto &path: paths ) {
 			path_renderer::render( path );
 		}

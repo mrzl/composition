@@ -3,7 +3,7 @@
 #include <gmock/gmock-matchers.h>
 #include "gtest/gtest.h"
 #include "path/path.h"
-#include "path/pathmanager.h"
+#include "path/path_manager.h"
 
 using ::testing::_;
 
@@ -34,7 +34,7 @@ TEST( path_test, inside ) {
 
 
 TEST_F( PathManagerTest, test_load_some_paths ) {
-	pathmanager m;
+	path_manager m;
 	int paths_loaded = m.load( m_recordings_path, 2 );
 
 	EXPECT_EQ( paths_loaded, m.size());
@@ -46,7 +46,7 @@ TEST_F( PathManagerTest, test_load_some_paths ) {
 }
 
 TEST_F( PathManagerTest, test_remove_double_clicks ) {
-	pathmanager m;
+	path_manager m;
 	m.load( m_recordings_path );
 
 	int removed = m.remove_double_clicks();
@@ -55,10 +55,11 @@ TEST_F( PathManagerTest, test_remove_double_clicks ) {
 }
 
 TEST_F( PathManagerTest, filter_by_bounding_box ) {
-	pathmanager m;
+	path_manager m;
 	m.load( m_recordings_path, 3 );
 
-	int removed = m.filter_self_bounding_box( rect( 0, 0, 100, 100 ));
+	auto bb_filter = std::make_shared<bounding_box_filter>( rect( 0, 0, 100, 100 ));
+	int removed = m.filter_self(bb_filter);
 
 	EXPECT_EQ( removed, 2 );
 }

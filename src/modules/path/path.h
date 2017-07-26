@@ -23,7 +23,7 @@ public:
 	void add_raw( long time_millis, int x, int y );
 	int size();
 
-	bool inside( rect r );
+	bool inside( rect r ) const;
 
 	std::chrono::milliseconds absolute_milliseconds();
 	std::chrono::milliseconds current_milliseconds();

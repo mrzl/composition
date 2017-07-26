@@ -27,7 +27,7 @@ std::chrono::milliseconds path::absolute_milliseconds() {
 			std::chrono::system_clock::now().time_since_epoch());
 }
 
-bool path::inside( rect r ) {
+bool path::inside( rect r ) const {
 	for ( auto &p : m_pairs ) {
 		if ( !( p.x >= r.x() && p.x <= ( r.x() + r.width()) && p.y >= r.y() && p.y <= ( r.y() + r.height()))) {
 			return false;
