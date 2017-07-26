@@ -1,5 +1,7 @@
 #pragma once
 
+#include "path/rect.h"
+
 #include <utility>
 #include <vector>
 #include <chrono>
@@ -19,6 +21,8 @@ public:
 
     void add_raw(long time_millis, int x, int y);
     int size();
+
+    bool inside(rect r);
 
     std::chrono::milliseconds absolute_milliseconds();
     std::chrono::milliseconds current_milliseconds();

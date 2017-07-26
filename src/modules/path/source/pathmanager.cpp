@@ -34,10 +34,14 @@ int pathmanager::load(std::string directory, unsigned int max) {
             }
 
             m_paths.push_back(new_path);
+            if(size() >= max)
+            {
+                break;
+            }
         }
     }
 
-    return m_paths.size();
+    return this->size();
 }
 
 int pathmanager::size() {
@@ -64,5 +68,27 @@ int pathmanager::filter_self_amount_of_points(int number_of_points) {
         }
     }
 
+    return counter;
+}
+
+void pathmanager::clear() {
+    m_paths.clear();
+}
+
+int pathmanager::filter_self_bounding_box( rect bounding_box ) {
+    int counter = 0;
+
+    for(auto it = m_paths.begin(); it != m_paths.end();)
+    {
+        if(!it->inside(bounding_box))
+        {
+            it = m_paths.erase(it);
+            counter++;
+        }
+        else
+        {
+            ++it;
+        }
+    }
     return counter;
 }
