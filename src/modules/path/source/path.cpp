@@ -29,10 +29,13 @@ std::chrono::milliseconds path::absolute_milliseconds() {
 
 bool path::inside( rect r ) {
 	for ( auto &p : m_pairs ) {
-		if(!(p.x >= r.x() && p.x <= (r.x() + r.width()) && p.y >= r.y() && p.y <= (r.y() + r.height())))
-		{
+		if ( !( p.x >= r.x() && p.x <= ( r.x() + r.width()) && p.y >= r.y() && p.y <= ( r.y() + r.height()))) {
 			return false;
 		}
 	}
 	return true;
+}
+
+std::vector<path::point> &path::pairs() {
+	return m_pairs;
 }
