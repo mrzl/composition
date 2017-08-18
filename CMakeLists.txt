@@ -16,5 +16,9 @@ add_custom_target(run_test1
         COMMAND ${CMAKE_SOURCE_DIR}/src/applications/bin/test1
         WORKING_DIRECTORY ${CMAKE_PROJECT_DIR})
 
+add_custom_target(mousehook
+        COMMAND ${CMAKE_SOURCE_DIR}/src/mousehook/bin/hook
+        WORKING_DIRECTORY ${CMAKE_PROJECT_DIR})
+
 # This must always be last!
 include(CPack)
