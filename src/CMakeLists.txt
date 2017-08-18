@@ -1,2 +1,3 @@
 add_subdirectory(applications)
+add_subdirectory(mousehook)
 add_subdirectory(modules)
