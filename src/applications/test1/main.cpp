@@ -16,13 +16,15 @@ public:
 	}
 
 	void update() {
+		ofHideCursor();
 	}
 
 	void draw() {
 		ofBackground( 0 );
 		ofSetColor( 255 );
 		ofSetWindowTitle( ofToString( ofGetFrameRate()));
-		auto bb_filter = std::make_shared<bounding_box_filter>( rect( ofGetMouseX(), ofGetMouseY(), 200, 200 ));
+		auto r = rect( ofGetMouseX(), ofGetMouseY(), 200, 200 );
+		auto bb_filter = std::make_shared<bounding_box_filter>( r );
 		auto paths = m.filter_new( bb_filter );
 		for ( auto &path: paths ) {
 			path_renderer::render( path );
@@ -31,7 +33,7 @@ public:
 };
 
 int main() {
-	ofSetupOpenGL( 1920, 1080, OF_WINDOW );
+	ofSetupOpenGL( 1920, 1080, OF_FULLSCREEN );
 	ofRunApp( new ofApp());
 	return 0;
 }
